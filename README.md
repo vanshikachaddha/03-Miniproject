@@ -2,6 +2,80 @@
 
 [Project definition](./Project.md)
 
+This project is a simple music system built on the Raspberry Pi Pico that demonstrates both pre-programmed playback and interactive control of musical notes.
+
+### Ode to Joy Playback
+At startup, the system automatically plays the classic melody Ode to Joy through a buzzer. The melody is defined as an array of notes (E4, F4, G4, etc.) and durations (quarter notes, half notes), which are looped through and played with appropriate timing.
+
+### Interactive Note Control with Photosensor
+After the song finishes, the system enters interactive mode. A photoresistor connected to an analog input pin detects light intensity. The sensor’s values are scaled and mapped to frequencies corresponding to musical notes (C4 to C5).
+
+### Buzzer Output
+A piezo buzzer is used as the sound output device. The tone() function generates square waves at the mapped frequencies, which correspond to notes in the Western musical scale.
+
+In short, the system first plays a pre-composed melody and then switches to a light-controlled instrument mode where the user can explore sounds interactively.
+
+## Design Approach
+
+### System Architecture
+The system is composed of three main components:
+1. Input → Photosensor connected as a voltage divider to the Raspberry Pi Pico
+2. Processing → Raspberry Pi Pico reads analog input, maps values to note frequencies, and controls playback logic.
+3. Output → Piezo buzzer that produces audible notes.
+
+## Comparison
+1. Continuous vs. Discrete Notes:
+- We initially considered mapping sensor values directly to continuous frequencies. However, this produced unstable and unpleasant tones. Switching to discrete notes (C4–C5) created a more musical and predictable output.
+
+2. Input Method (Photosensor vs. Buttons):
+- Buttons would have provided reliable, fixed notes, but the photosensor was chosen to make the system more interactive and dynamic. Light variation allows smoother user control and a more instrument-like experience.
+
+3. Microcontroller Choice (Pico vs. Arduino):
+- The Raspberry Pi Pico was selected for its affordability and available ADC pins. Arduino boards would have been equally capable but were less accessible for this build.
+
+## Testing
+To validate the mapping logic that converts sensor values into discrete notes, we wrote a simple unit test for the mapTest() function. This test simulates sensor inputs and checks whether the output matches the expected note frequencies.
+
+We tested the system in two phases:
+
+1. Predefined Song Playback:
+- Verified that the buzzer successfully plays Ode to Joy at startup.
+- Checked timing of notes (quarter vs half notes) to ensure the melody was recognizable.
+
+2. Interactive Note Control
+- Used different light conditions on the photosensor (covered, partial light, bright light).
+- Confirmed that sensor values snapped correctly to discrete notes (C4 → C5).
+- Observed Serial Monitor outputs to ensure scaling and mapping boundaries were consistent.
+
+### Code Snippet
+
+mapTest(700) → 262 (C4)   
+mapTest(800) → 440 (A4)   
+mapTest(900) → 523 (C5)   
+
+### Expected Serial Output
+
+Low passed
+
+Middle passed
+
+High passed
+
+## Design Changes
+
+### Discrete Note Mapping:
+Instead of letting the photosensor produce continuous frequency values, we mapped sensor ranges to discrete musical notes (C4–C5). This ensured that the output always corresponded to recognizable tones rather than random pitches.
+
+### Startup Melody (Ode to Joy):
+We added a short playback of Ode to Joy at the beginning. This serves as a quick indicator that the system is running and the buzzer is functioning correctly before entering interactive mode.
+
+
+## Demo
+
+[Watch Demo Video](IMG_6274.MOV)
+
+
+
 This project uses the Raspberry Pi Pico 2WH SC1634 (wireless, with header pins).
 
 Each team must provide a micro-USB cable that connects to their laptop to plug into the Pi Pico.
