@@ -56,7 +56,9 @@ mapTest(900) → 523 (C5)
 ### Expected Serial Output
 
 Low passed
+
 Middle passed
+
 High passed
 
 ## Design Changes
