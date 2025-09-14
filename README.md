@@ -17,8 +17,13 @@ In short, the system first plays a pre-composed melody and then switches to a li
 
 ## Design Approach
 
+### System Architecture
+The system is composed of three main components:
+1. Input → Photosensor connected as a voltage divider to the Raspberry Pi Pico
+2. Processing → Raspberry Pi Pico reads analog input, maps values to note frequencies, and controls playback logic.
+3. Output → Piezo buzzer that produces audible notes.
 
-## Comparisons
+
 
 ## Testing
 
