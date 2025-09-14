@@ -1,4 +1,14 @@
-// Analog input for photosensor
+enum Note {
+  NOTE_C4 = 262,
+  NOTE_D4 = 294,
+  NOTE_E4 = 330,
+  NOTE_F4 = 349,
+  NOTE_G4 = 392,
+  NOTE_A4 = 440,
+  NOTE_B4 = 494,
+  NOTE_C5 = 523
+};
+
 const int sensorPin = 28;
 // Sensor reading values
 int sensorValue = 0;
@@ -6,10 +16,10 @@ int sensorValue = 0;
 const int buzzer = 16;
 // song
 int Ode_to_Joy[] = {
-E4, E4, F4, G4,
-  G4, F4, E4, D4,
-  C4, C4, D4, E4,
-  E4, D4, C4
+NOTE_E4, NOTE_E4, NOTE_F4, NOTE_G4,
+  NOTE_G4, NOTE_F4, NOTE_E4, NOTE_D4,
+  NOTE_C4, NOTE_C4, NOTE_D4, NOTE_E4,
+  NOTE_E4, NOTE_D4, NOTE_C4
 };
 // duration of notes 
 int noteDurations[] = {
@@ -27,9 +37,9 @@ void setup() {
   // Play song
   for (int i = 0; i < sizeof(melody)/sizeof(melody[0]); i++) {
     int duration = 1000 / noteDurations[i]; // 4 = quarter = 250ms at 60 bpm
-    tone(speakerPin, melody[i], duration);
+    tone(buzzer, Ode_to_Joy[i], duration);
     delay(duration * 1.30);  // pause between notes
-    noTone(speakerPin);
+    noTone(buzzer);
   }
 }
 
