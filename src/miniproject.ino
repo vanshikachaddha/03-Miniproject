@@ -35,7 +35,7 @@ void setup() {
  // Serial.println("starting!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
  pinMode(buzzer, OUTPUT);
   // Play song
-  for (int i = 0; i < sizeof(melody)/sizeof(melody[0]); i++) {
+  for (int i = 0; i < sizeof(Ode_to_Joy)/sizeof(Ode_to_Joy[0]); i++) {
     int duration = 1000 / noteDurations[i]; // 4 = quarter = 250ms at 60 bpm
     tone(buzzer, Ode_to_Joy[i], duration);
     delay(duration * 1.30);  // pause between notes
