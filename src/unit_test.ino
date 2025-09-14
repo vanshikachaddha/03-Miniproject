@@ -1,14 +1,16 @@
-// Unit Test for the Scaler
+// Unit Test for the map function
 
-// If the light is low going from 0-800, the buzzer should make 200 Hz
-// If the light is in range of 800-900, the buzzer should make 200-1000 Hz
-// If the light is higher than 900, the buzzer should make 1000 Hz
+int mapTest(int sensorValue){
+  float scaled = map(sensorValue, 700, 900, 200, 600);
 
-float Scaler(int sensorValue) {
-  float scaled = 200 + ((sensorValue - 800) * (1000 - 200) / (900 - 800));
-  if (scaled < 200) scaled = 200;
-  if (scaled > 1000) scaled = 1000;
-  return scaled;
+  if (scaled < 262) return 262;
+  else if (scaled < 294) return 294;
+  else if (scaled < 330) return 330;
+  else if (scaled < 349) return 349;
+  else if (scaled < 392) return 392;
+  else if (scaled < 440) return 440;
+  else if (scaled < 494) return 494;
+  else return 523;
 }
 
 void assertEqual(float actual, float expected, const char* test) {
@@ -28,10 +30,9 @@ void setup() {
   Serial.begin(9600);
   delay(1000);
 
-  assertEqual(Scaler(0), 200, "Scaler_test_low");
-  assertEqual(Scaler(800), 200, "Scaler_test_in_range_low");
-  assertEqual(Scaler(900), 1000, "Scaler_test_in_range_high");
-  assertEqual(Scaler(1200), 1000, "Scaler_test_high");
+  assertEqual(mapTest(700), 262, "Note_test_low");
+  assertEqual(mapTest(800), 440, "Note_test_middle");
+  assertEqual(mapTest(900), 523, "Note_test_high");
 }
 
 void loop() {
