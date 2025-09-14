@@ -74,7 +74,9 @@ We added a short playback of Ode to Joy at the beginning. This serves as a quick
 
 [Watch Demo Video](IMG_6274.MOV)
 
+[Design Image](IMG_8956.HEIC)
 
+## Project Overview
 
 This project uses the Raspberry Pi Pico 2WH SC1634 (wireless, with header pins).
 
