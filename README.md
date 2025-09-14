@@ -15,7 +15,18 @@ A piezo buzzer is used as the sound output device. The tone() function generates
 
 In short, the system first plays a pre-composed melody and then switches to a light-controlled instrument mode where the user can explore sounds interactively.
 
-## Project Part Details
+## Design Approach
+
+
+## Comparisons
+
+## Testing
+
+## Design Changes
+
+## Demo (Optional)
+
+
 
 
 This project uses the Raspberry Pi Pico 2WH SC1634 (wireless, with header pins).
