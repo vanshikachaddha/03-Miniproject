@@ -1,8 +1,10 @@
 // Unit Test for the map function
 
 int mapTest(int sensorValue){
+  // Scale sensorValue from the range of 700 to 900 to the buzzer frequency range of 200 to 600
   float scaled = map(sensorValue, 700, 900, 200, 600);
-
+  
+  // Convert the scaled value into notes (C4 to C5)
   if (scaled < 262) return 262;
   else if (scaled < 294) return 294;
   else if (scaled < 330) return 330;
@@ -29,7 +31,7 @@ void assertEqual(float actual, float expected, const char* test) {
 void setup() {
   Serial.begin(9600);
   delay(1000);
-
+  // Run the test from the low to high input value and see if it matches with the corresponding note
   assertEqual(mapTest(700), 262, "Note_test_low");
   assertEqual(mapTest(800), 440, "Note_test_middle");
   assertEqual(mapTest(900), 523, "Note_test_high");
