@@ -1,5 +1,8 @@
+// Analog input for photosensor
 const int sensorPin = 28;
+// Sensor reading values
 int sensorValue = 0;
+// Pin that the buzzer is connected to
 const int buzzer = 16;
 // song
 int Ode_to_Joy[] = {
@@ -21,7 +24,7 @@ void setup() {
  Serial.begin(9600);
  // Serial.println("starting!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
  pinMode(buzzer, OUTPUT);
-  //Play song
+  // Play song
   for (int i = 0; i < sizeof(melody)/sizeof(melody[0]); i++) {
     int duration = 1000 / noteDurations[i]; // 4 = quarter = 250ms at 60 bpm
     tone(speakerPin, melody[i], duration);
