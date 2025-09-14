@@ -2,6 +2,22 @@
 
 [Project definition](./Project.md)
 
+This project is a simple music system built on the Raspberry Pi Pico that demonstrates both pre-programmed playback and interactive control of musical notes.
+
+### Ode to Joy Playback
+At startup, the system automatically plays the classic melody Ode to Joy through a buzzer. The melody is defined as an array of notes (E4, F4, G4, etc.) and durations (quarter notes, half notes), which are looped through and played with appropriate timing.
+
+### Interactive Note Control with Photosensor
+After the song finishes, the system enters interactive mode. A photoresistor connected to an analog input pin detects light intensity. The sensor’s values are scaled and mapped to frequencies corresponding to musical notes (C4 to C5).
+
+### Buzzer Output
+A piezo buzzer is used as the sound output device. The tone() function generates square waves at the mapped frequencies, which correspond to notes in the Western musical scale.
+
+In short, the system first plays a pre-composed melody and then switches to a light-controlled instrument mode where the user can explore sounds interactively.
+
+## Project Part Details
+
+
 This project uses the Raspberry Pi Pico 2WH SC1634 (wireless, with header pins).
 
 Each team must provide a micro-USB cable that connects to their laptop to plug into the Pi Pico.
