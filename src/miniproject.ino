@@ -1,14 +1,14 @@
 const int sensorPin = 28;
 int sensorValue = 0;
 const int buzzer = 16;
-
+// song
 int Ode_to_Joy[] = {
 E4, E4, F4, G4,
   G4, F4, E4, D4,
   C4, C4, D4, E4,
   E4, D4, C4
 };
-
+// duration of notes 
 int noteDurations[] = {
   4, 4, 4, 4,   // quarter notes
   4, 4, 4, 4,
