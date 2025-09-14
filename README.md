@@ -72,7 +72,7 @@ We added a short playback of Ode to Joy at the beginning. This serves as a quick
 
 ## Demo
 
-[Watch Demo Video](docs/IMG_6274.MOV)
+[Watch Demo Video](IMG_6274.MOV)
 
 
 
